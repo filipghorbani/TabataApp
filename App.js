@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View, FlatList } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TouchableWithoutFeedback } from 'react-native';
 
 export default function App() {
 
@@ -19,6 +19,7 @@ return (
         <FlatList
             data={items}
             renderItem={({ item }) => (
+              <TouchableWithoutFeedback onPress={() => {alert(item.title)}}>
                 <View style={styles.item}>
                     <View style={styles.image}>
 
@@ -29,6 +30,7 @@ return (
                         <Text>{item.time}</Text>
                     </View>
                 </View>
+              </TouchableWithoutFeedback>
             )}
             keyExtractor={item => item.id}
             contentContainerStyle={{ paddingVertical: 30 }}
