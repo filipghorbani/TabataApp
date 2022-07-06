@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableWithoutFeedback,
 } from "react-native";
+import Icon from "react-native-vector-icons/AntDesign";
 
 export default function App() {
   const [items, setItems] = useState([
@@ -41,6 +42,18 @@ export default function App() {
         keyExtractor={(item) => item.id}
         contentContainerStyle={{ paddingVertical: 30 }}
       />
+      <View style={styles.nav}>
+        <Text>Hello World</Text>
+        <Icon
+          name="pluscircle"
+          size={55}
+          color="#9c4f4f"
+          onPress={() => {
+            alert("ADD");
+          }}
+        />
+        <Text>Hello World</Text>
+      </View>
     </View>
   );
 }
@@ -60,11 +73,18 @@ const styles = StyleSheet.create({
     elevation: 7,
   },
   image: {
-    backgroundColor: "peachpuff",
+    backgroundColor: "#d68b78",
     flex: 2,
   },
   text: {
     flex: 1.5,
     margin: 10,
+  },
+  nav: {
+    height: 70,
+    backgroundColor: "white",
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-around",
   },
 });
